@@ -1,0 +1,77 @@
+{% load static %}
+<!-- datos del tweet embedded -->
+<!-- Foto de perfil , nombre y nombre de usuario -->
+<div class="flex p-4">
+  <div class="w-14">
+    <img class="object-cover w-12 h-12 rounded-full" src="{{tweet.embedded.profile_photo}}" alt="" />
+  </div>
+  <div class="flex-row pl-1.5 w-full">
+    <h1 class="flex items-center font-semibold">
+      {{tweet.embedded.name}} {% if tweet.embedded.user_is_verified %}
+      <svg class="w-5 h-5" style="fill: #1d9bf0" viewBox="0 0 24 24" aria-label="Cuenta verificada" role="img" data-testid="icon-verified">
+        <g><path d="M22.25 12c0-1.43-.88-2.67-2.19-3.34.46-1.39.2-2.9-.81-3.91s-2.52-1.27-3.91-.81c-.66-1.31-1.91-2.19-3.34-2.19s-2.67.88-3.33 2.19c-1.4-.46-2.91-.2-3.92.81s-1.26 2.52-.8 3.91c-1.31.67-2.2 1.91-2.2 3.34s.89 2.67 2.2 3.34c-.46 1.39-.21 2.9.8 3.91s2.52 1.26 3.91.81c.67 1.31 1.91 2.19 3.34 2.19s2.68-.88 3.34-2.19c1.39.45 2.9.2 3.91-.81s1.27-2.52.81-3.91c1.31-.67 2.19-1.91 2.19-3.34zm-11.71 4.2L6.8 12.46l1.41-1.42 2.26 2.26 4.8-5.23 1.47 1.36-6.2 6.77z"></path></g>
+      </svg>
+      {% endif %}
+    </h1>
+    <p class="text-gray-500">@{{tweet.embedded.username}}</p>
+  </div>
+</div>
+<!-- texto del tweet-->
+{% if tweet.embedded.text %}
+<div id="text_" class="px-4 text-2xl">{{tweet.embedded.text}}</div>
+{% endif %}
+<!-- Mostrar las imagenes -->
+{% if tweet.embedded.media %}
+<div class="flex-row px-4">
+  {% for img in tweet.embedded.media %}
+  <img class="w-full mt-4 rounded" src="{{img}}" alt="image" />
+  {% endfor %}
+</div>
+{% endif %}
+<!-- Mostrar encuestas -->
+{% if tweet.embedded.poll %}
+<div id="poll_" class="flex-row px-4 text-2xl">
+  {% for option in tweet.embedded.poll %}
+  <div class="flex mt-1">
+    <div class="min-h-[2.5rem] rounded w-full">
+      {% if option.first %}
+      <div class="flex items-center w-10 h-full rounded vote-bg_ bg-[#79C2F3]">
+        <span class="absolute pl-3 font-semibold text-black w-max"> {{option.text}} </span>
+      </div>
+      {% else %}
+      <div class="flex items-center w-10 h-full rounded vote-bg_ bg-[#CFD9DE]">
+        <span class="absolute pl-3 text-black w-max"> {{option.text}} </span>
+      </div>
+      {% endif %}
+    </div>
+    {% if option.first %}
+    <div class="flex items-center justify-end w-16 font-semibold">
+      <span class="pr-1 vote-count_">{{option.votes}}</span>
+      <span>%</span>
+    </div>
+    {% else %}
+    <div class="flex items-center justify-end w-16">
+      <span class="pr-1 vote-count_">{{option.votes}}</span>
+      <span>%</span>
+    </div>
+    {% endif %}
+  </div>
+
+  {% endfor %}
+</div>
+{% endif %}
+<!-- mostrar web -->
+{% if tweet.embedded.web %}
+<div class="flex-row mx-4 mt-1 rounded bg-gray-50">
+  {% if tweet.embedded.web.image %}
+  <img class="rounded-t-2xl" src="{{tweet.web.image}}" alt="" />
+  {% endif %}
+  <div class="p-2">
+    <div id="domain_" class="text-gray-600">{{tweet.embedded.web.domain}}</div>
+    <div class="text-lg">{{tweet.embedded.web.title}}</div>
+    <div class="text-lg">{{tweet.embedded.web.description}}</div>
+  </div>
+</div>
+{% endif %}
+
+<div id="date_" class="p-4 text-gray-500">{{tweet.embedded.created}}</div>

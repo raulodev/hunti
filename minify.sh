@@ -1,0 +1,1 @@
+npx tailwindcss -i ./server/static/input.css -o ./server/static/output.css --minify
