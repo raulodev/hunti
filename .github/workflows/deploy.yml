@@ -8,7 +8,7 @@ on:
 jobs:
   deploy:
     runs-on: [ubuntu-latest]
-    environment: Production
+    environment: Boom
     steps:
       - uses: actions/checkout@v1
       - name: Push to server
