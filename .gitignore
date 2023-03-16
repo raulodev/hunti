@@ -3,4 +3,5 @@
 __pycache__
 node_modules
 *.png
-*.json
+data/*.json
+client/data/*.json
