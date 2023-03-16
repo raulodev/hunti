@@ -6,7 +6,7 @@
 @layer base {
     body {
         min-height: 220px;
-        max-width: 625px;
+        max-width: 560px;
         margin: 0 auto;
         background-color: #fff;
         font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";

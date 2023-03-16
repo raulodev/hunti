@@ -35,7 +35,7 @@ $(document).ready(function () {
     .find("#text")
     .each(function () {
       $(this).html(function (_, html) {
-        return html.replace(/(\#\w+)/g, '<span style="color:#1D9BF0">$1</span>');
+        return html.replace(/(\#[A-Za-z0-9-_ñÑ-ÿ\u00f1\u00d1]+)/g, '<span style="color:#1D9BF0">$1</span>');
       });
     });
 
@@ -173,7 +173,7 @@ $(document).ready(function () {
     .find("#text_")
     .each(function () {
       $(this).html(function (_, html) {
-        return html.replace(/(\#\w+)/g, '<span style="color:#1D9BF0">$1</span>');
+        return html.replace(/(\#[A-Za-z0-9-_ñÑ-ÿ\u00f1\u00d1]+)/g, '<span style="color:#1D9BF0">$1</span>');
       });
     });
   //  Cambiar el color en las palabras que contengan el símbolo (@) por delante

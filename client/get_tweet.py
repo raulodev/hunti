@@ -74,4 +74,4 @@ def create_data(id: str):
         tweet_id = json_response.get("includes")["tweets"][0]["id"]
         create_embedded_data(tweet_id)
     except Exception as err:
-        print(err)
+        pass

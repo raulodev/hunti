@@ -11,7 +11,7 @@
   <body class="bg-black">
     <div id="container" class="text-white bg-black">
       {% for tweet in data %}
-      <div class="">
+      <div>
         <!-- Foto de perfil , nombre y nombre de usuario -->
         <div class="flex p-4">
           <div class="w-14">
@@ -75,7 +75,7 @@
         </div>
         {% endif %}
         <!-- mostrar web -->
-        {% if tweet.web %}
+        {% if tweet.web and not tweet.media %}
         <div class="flex-row mx-4 mt-1 text-white rounded bg-zinc-900">
           {% if tweet.web.image %}
           <img class="rounded-t-2xl" src="{{tweet.web.image}}" alt="" />

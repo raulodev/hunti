@@ -14,7 +14,7 @@ def default():
     )
 
 
-def black():
+def dark():
     """Crea la imagen en modo oscuro"""
 
     subprocess.run(

@@ -16,5 +16,4 @@ RUN chmod +x ./run.sh
 RUN chmod +x ./server/run.sh
 RUN chmod +x ./client/run.sh
 
-
 CMD ./run.sh

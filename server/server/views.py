@@ -18,8 +18,14 @@ def black(request):
 
 def read_json():
 
-    file = open("../data/data.json", "r")
-    r = json.JSONDecoder().decode(file.read())
+    try :
+        
+        file = open("../data/data.json", "r")
+        r = json.JSONDecoder().decode(file.read())
+
+    except FileNotFoundError :
+
+        r = {"error":"No se ha generado un archivo json con los datos"}
 
     return r
 
@@ -34,7 +40,7 @@ def read_json_test():
         "user_is_verified": True,
         "profile_photo": "user.jpg",
         "created": "2023-01-14T21:00:07.000Z",
-        "text": "#Rapidiously actualize @error-freeodologies. Uniquely restore enterprise expertise via.",
+        "text": "#Rapidiously  expertise via.",
         "media": [],
         "poll": [],
         "web": {},
@@ -238,13 +244,18 @@ def read_json_test():
         "profile_photo": "user.jpg",
         "created": "2023-01-14T21:00:07.000Z",
         "text": "#Rapidiously actualize @error-freeodologies. Uniquely restore enterprise expertise via.",
-        "media": [],
+        "media": [1, 2],
         "poll": [
             {"text": "opcion1", "votes": 2},
             {"text": "opcion2", "votes": 50},
             {"text": "opcion2", "votes": 25},
         ],
-        "web": {},
+        "web": {
+            "image": "image.png",
+            "domain": "wwww.example.com",
+            "title": "Avanzar para adelante",
+            "description": "Conveniently network customized outsourcing via user friendly e-commerce. Rapidiously generate.",
+        },
         "embedded": {
             "name": "name INRUSTADO",
             "username": "jorg4 embedded",
@@ -303,14 +314,14 @@ def read_json_test():
         },
     }
 
-    # content.append(only_text)
+    content.append(only_text)
     # content.append(only_media)
-    content.append(only_web)
+    # content.append(only_web)
     # content.append(tweet_1)
     # content.append(only_poll)
     # content.append(only_ti_text)
     # content.append(only_ti_media)
     # content.append(only_ti_poll)
-    content.append(only_ti_web)
+    # content.append(only_ti_web)
 
     return content

@@ -119,4 +119,4 @@ docker run -d -m="200mb" --restart always --name hunti -v `pwd`:/`pwd` -w `pwd` 
 - [Django](https://www.djangoproject.com/)
 - [Jquery](https://jquery.com/)
 - [Tailwindcss](https://tailwindcss.com/)
-- Tweepy
+- [Tweepy](https://docs.tweepy.org/en/stable/getting_started.html)

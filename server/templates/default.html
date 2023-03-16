@@ -9,9 +9,10 @@
     <script src="{% static 'jquery-3.6.1.min.js' %}"></script>
   </head>
   <body class="bg-white">
-    <div id="container" class="font-light bg-white">
+    {{data.error}}
+    <div id="container" class="bg-white">
       {% for tweet in data %}
-      <div class="">
+      <div>
         <!-- Foto de perfil , nombre y nombre de usuario -->
         <div class="flex p-4">
           <div class="w-14">
@@ -75,7 +76,7 @@
         </div>
         {% endif %}
         <!-- mostrar web -->
-        {% if tweet.web %}
+        {% if tweet.web and not tweet.media %}
         <div class="flex-row mx-4 mt-1 rounded bg-gray-50">
           {% if tweet.web.image %}
           <img class="rounded-t-2xl" src="{{tweet.web.image}}" alt="" />

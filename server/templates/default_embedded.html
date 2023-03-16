@@ -61,7 +61,7 @@
 </div>
 {% endif %}
 <!-- mostrar web -->
-{% if tweet.embedded.web %}
+{% if tweet.embedded.web and not tweet.embedded.media %}
 <div class="flex-row mx-4 mt-1 rounded bg-gray-50">
   {% if tweet.embedded.web.image %}
   <img class="rounded-t-2xl" src="{{tweet.web.image}}" alt="" />
